@@ -1,0 +1,100 @@
+[
+  {
+    "id": 32,
+    "name": "Bares",
+    "sheetLabel": "Comanda",
+    "description": "",
+    "maxIdleTime": 0,
+    "serviceModel": "FIXED",
+    "operationType": "WITH_TABLE",
+    "checkpadModels": [
+      {
+        "id": 1,
+        "icon": "table-restaurant",
+        "name": "Mesa"
+      }
+    ],
+    "checkpadQuantity": 10,
+    "sheetLabelPlural": "Comandas",
+    "maxIdleTimeEnabled": 0,
+    "checkpadModelQuantity": 1,
+    "defaultVizualizationList": "CHECKPAD"
+  },
+  {
+    "id": 347,
+    "name": "Com mesa e flexivel",
+    "sheetLabel": "Comanda",
+    "description": "Mesa flexivel",
+    "maxIdleTime": 25,
+    "serviceModel": "FLEXIBLE",
+    "operationType": "WITH_TABLE",
+    "checkpadModels": [
+      {
+        "id": 4,
+        "icon": "tent",
+        "name": "Barraca"
+      },
+      {
+        "id": 9,
+        "icon": "apartment",
+        "name": "Apartamento"
+      }
+    ],
+    "checkpadQuantity": 20,
+    "sheetLabelPlural": "Comandas",
+    "maxIdleTimeEnabled": 1,
+    "checkpadModelQuantity": 2,
+    "defaultVizualizationList": "ORDERSHEET"
+  },
+  {
+    "id": 74,
+    "name": "Minha Loja",
+    "sheetLabel": "Comanda",
+    "description": "",
+    "maxIdleTime": 5,
+    "serviceModel": "FIXED",
+    "operationType": "WITH_TABLE",
+    "checkpadModels": [],
+    "checkpadQuantity": 0,
+    "sheetLabelPlural": "Comandas",
+    "maxIdleTimeEnabled": 1,
+    "checkpadModelQuantity": 0,
+    "defaultVizualizationList": "CHECKPAD"
+  },
+  {
+    "id": 30,
+    "name": "Salão",
+    "sheetLabel": "Comanda",
+    "description": "",
+    "maxIdleTime": 0,
+    "serviceModel": "FIXED",
+    "operationType": "WITH_TABLE",
+    "checkpadModels": [
+      {
+        "id": 1,
+        "icon": "table-restaurant",
+        "name": "Mesa"
+      }
+    ],
+    "checkpadQuantity": 50,
+    "sheetLabelPlural": "Comandas",
+    "maxIdleTimeEnabled": 0,
+    "checkpadModelQuantity": 1,
+    "defaultVizualizationList": "CHECKPAD"
+  },
+  {
+    "id": 310,
+    "name": "Área VIP",
+    "sheetLabel": "Comanda",
+    "description": "",
+    "maxIdleTime": 0,
+    "serviceModel": "FLEXIBLE",
+    "operationType": "WITH_TABLE",
+    "checkpadModels": [],
+    "checkpadQuantity": 0,
+    "sheetLabelPlural": "Comandas",
+    "maxIdleTimeEnabled": 0,
+    "checkpadModelQuantity": 0,
+    "defaultVizualizationList": "CHECKPAD"
+  }
+]
