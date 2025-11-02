@@ -3,13 +3,24 @@ import { api } from "@/app/api/api";
 
 export interface Comanda {
   id: number;
-  mesaId: number;
   customerName: string | null;
-  customerIdentifier: string | null;
+  customerIdentifier?: string | null; 
+  mainIdentifier?: string | null;
+  identifier?: string | null;
+  contact: string | null;
   subtotal: number | null;
-  status: string; // exemplo: "open", "closed", etc.
-  createdAt: string | null;
-  updatedAt: string | null;
+  status?: string;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+  idleTime?: number | null;
+
+  checkpad?: {
+    id: number;
+    hash: string;
+    model: string;       // Mesa, Barraca, Apartamento
+    modelIcon: string;
+    identifier: string;  // Número da mesa
+  } | null;
 }
 
 interface ComandasState {

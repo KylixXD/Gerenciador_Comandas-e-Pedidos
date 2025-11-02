@@ -21,7 +21,7 @@ export function TableGrid() {
   if (!mesas.length) return <p className="text-center text-gray-400">Nenhuma mesa encontrada.</p>;
 
   return (
-    <div className="flex flex-wrap gap-4 p-6">
+    <div className="flex flex-wrap gap-4 justify-start items-start">
       {mesas.map((mesa) => (
         <TableCard
           key={mesa.id}

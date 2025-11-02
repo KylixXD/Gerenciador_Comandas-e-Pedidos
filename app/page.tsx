@@ -15,7 +15,7 @@ export default function HomePage() {
       <section className="flex-1 flex flex-col bg-gray-100">
         <Header view={view} setView={setView} />
 
-        <div className="flex-1 overflow-y-auto p-4">
+        <div className="flex-1 overflow-y-auto px-8 py-4">
           {view === "comandas" ? <CheckpadGrid /> : <TableGrid />}
         </div>
       </section>

@@ -20,7 +20,7 @@ export function CheckpadGrid() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-4">
+    <div className="flex flex-wrap gap-4 justify-start items-start">
       {comandas.map((comanda) => (
         <CheckpadCard key={comanda.id} comanda={comanda} />
       ))}

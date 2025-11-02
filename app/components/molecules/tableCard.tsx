@@ -51,14 +51,14 @@ export function TableCard({ mesa, onClick }: MesaCardProps) {
       `}
     >
       {/* Cabeçalho */}
-      <div className="flex items-center gap-2 text-[16px] font-semibold text-gray-800">
+      <div className="flex items-center gap-2 text-[16px] font-semibold text-neutral-900">
         <MdTableRestaurant className="text-[18px]" />
         <span>{mesa.identifier}</span>
       </div>
       {!tableEmpty && (
         <>
           {/* Informações principais */}
-          <div className="text-[13px] text-gray-700 space-y-0.5 mt-1">
+          <div className="text-[13px] text-neutral-900 space-y-0.5 mt-1">
             <div className="flex items-center gap-1">
               <MdReceipt size={14} />
               <span>{mesa.customerIdentifier || "0"}</span>
@@ -74,7 +74,7 @@ export function TableCard({ mesa, onClick }: MesaCardProps) {
           </div>
 
           {/* Rodapé */}
-          <div className="flex items-center justify-between text-[12px] font-medium text-gray-800 mt-auto">
+          <div className="flex items-center justify-between text-[12px] font-medium text-neutral-900 mt-auto">
             <div className="flex items-center gap-1">
               <MdTimer size={14} />
               <span>{mesa.idleTime ?? 0}min</span>
