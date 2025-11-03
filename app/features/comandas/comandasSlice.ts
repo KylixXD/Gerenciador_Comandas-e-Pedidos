@@ -14,6 +14,13 @@ export interface Comanda {
   updatedAt?: string | null;
   idleTime?: number | null;
 
+  author?: {
+    id: number;
+    name: string;
+    type: string; // "seller"
+  } | null;
+
+
   checkpad?: {
     id: number;
     hash: string;

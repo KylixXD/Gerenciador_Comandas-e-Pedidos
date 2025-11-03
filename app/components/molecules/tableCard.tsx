@@ -15,6 +15,9 @@ import {
 import { AiOutlineTag } from "react-icons/ai";
 import { GiCook } from "react-icons/gi";
 import { RiAccountCircleFill } from "react-icons/ri";
+import { maskForIdleTime } from "@/app/features/maskData/maskForIdleTime";
+import { getInitialsName } from "@/app/features/maskData/getInitialsName";
+import { toBrazilianCurrencyFromCents } from "@/app/features/maskData/convertMoneyReais";
 
 interface MesaCardProps {
   mesa: Mesa;
@@ -77,17 +80,14 @@ export function TableCard({ mesa, onClick }: MesaCardProps) {
           <div className="flex items-center justify-between text-[12px] font-medium text-neutral-900 mt-auto">
             <div className="flex items-center gap-1">
               <MdTimer size={14} />
-              <span>{mesa.idleTime ?? 0}min</span>
+              <span>{maskForIdleTime(mesa.idleTime ?? 0)}</span>
             </div>
             <div className="flex items-center gap-1">
               <MdRoomService size={14} />
-              <span>LG</span>
+              <span>{getInitialsName(mesa.authorName)}</span>
             </div>
             <div className="font-semibold">
-              R$
-              {mesa.subtotal?.toLocaleString("pt-BR", {
-                minimumFractionDigits: 2,
-              }) ?? "0,00"}
+              <span>{toBrazilianCurrencyFromCents(mesa.subtotal ?? 0)}</span>
             </div>
           </div>
         </>

@@ -9,6 +9,9 @@ import {
   MdRoomService,
 } from "react-icons/md";
 import { Comanda } from "@/app/features/comandas/comandasSlice";
+import { getInitialsName } from "@/app/features/maskData/getInitialsName";
+import { toBrazilianCurrencyFromCents } from "@/app/features/maskData/convertMoneyReais";
+import { maskForIdleTime } from "@/app/features/maskData/maskForIdleTime";
 
 interface CheckpadCardProps {
   comanda: Comanda;
@@ -76,18 +79,15 @@ export function CheckpadCard({ comanda, onClick }: CheckpadCardProps) {
           <div className="flex items-center justify-between text-[12px] font-medium text-neutral-900 mt-auto">
             <div className="flex items-center gap-1">
               <MdTimer size={14} />
-              <span>{comanda.idleTime ?? 0}min</span>
+              <span>{maskForIdleTime(comanda.idleTime ?? 0)}</span>
             </div>
             <div className="flex items-center gap-1">
               <MdRoomService size={14} />
-              <span>LG</span>
+              <div className="font-semibold">
+                <span>{getInitialsName(comanda.author?.name)}</span>
+              </div>
             </div>
-            <div className="font-semibold">
-              R$
-              {comanda.subtotal?.toLocaleString("pt-BR", {
-                minimumFractionDigits: 2,
-              }) ?? "0,00"}
-            </div>
+            <span>{toBrazilianCurrencyFromCents(comanda.subtotal ?? 0)}</span>
           </div>
         </>
       )}
