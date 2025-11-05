@@ -14,7 +14,7 @@ export function ToggleButtons({ view, setView}: ToggleButtonsProps) {
         className={`px-4 py-2 rounded-full text-sm font-medium ${
           view === "comandas"
             ? "bg-black text-white"
-            : "text-gray-700 hover:bg-gray-200"
+            : "text-neutral-900 hover:bg-gray-200"
         }`}
       >
         Comandas
@@ -24,7 +24,7 @@ export function ToggleButtons({ view, setView}: ToggleButtonsProps) {
         className={`px-4 py-2 rounded-full text-sm font-medium ${
           view === "locais"
             ? "bg-black text-white"
-            : "text-gray-700 hover:bg-gray-200"
+            : "text-neutral-900 hover:bg-gray-200"
         }`}
       >
         Locais

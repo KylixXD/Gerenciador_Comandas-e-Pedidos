@@ -1,4 +1,4 @@
-import { DropDown } from "@/app/components/atoms/dropDownAreas";
+import { DropDown } from "@/app/components/atoms/dropComponents/dropDownAreas";
 import { ToggleButtons } from "@/app/components/atoms/toggleButton";
 import { SearchInput } from "@/app/components/atoms/searchInput";
 import { HelpButton } from "@/app/components/atoms/helpButton";

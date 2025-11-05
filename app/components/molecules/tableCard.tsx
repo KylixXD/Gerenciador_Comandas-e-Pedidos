@@ -4,16 +4,11 @@ import React from "react";
 import { Mesa } from "@/app/features/mesas/mesasSlice";
 import {
   MdTableRestaurant,
-  MdAccessTime,
-  MdPerson,
   MdLocationOn,
   MdTimer,
   MdRoomService,
-  MdOutlineAccountCircle,
   MdReceipt,
 } from "react-icons/md";
-import { AiOutlineTag } from "react-icons/ai";
-import { GiCook } from "react-icons/gi";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { maskForIdleTime } from "@/app/features/maskData/maskForIdleTime";
 import { getInitialsName } from "@/app/features/maskData/getInitialsName";

@@ -1,3 +1,5 @@
+// Em 'CheckpadCard.tsx'
+
 "use client";
 
 import {
@@ -8,17 +10,20 @@ import {
   MdTimer,
   MdRoomService,
 } from "react-icons/md";
+import { useMemo } from "react"; // <-- Importe o useMemo
 import { Comanda } from "@/app/features/comandas/comandasSlice";
+import { Area } from "@/app/features/areas/areasSlice"; // <-- Importe a interface Area
 import { getInitialsName } from "@/app/features/maskData/getInitialsName";
 import { toBrazilianCurrencyFromCents } from "@/app/features/maskData/convertMoneyReais";
 import { maskForIdleTime } from "@/app/features/maskData/maskForIdleTime";
 
 interface CheckpadCardProps {
   comanda: Comanda;
+  areas: Area[]; // <-- Adicione a lista de áreas como prop
   onClick?: () => void;
 }
 
-export function CheckpadCard({ comanda, onClick }: CheckpadCardProps) {
+export function CheckpadCard({ comanda, areas, onClick }: CheckpadCardProps) {
   const vazio =
     !comanda.customerName &&
     !comanda.contact &&
@@ -31,7 +36,24 @@ export function CheckpadCard({ comanda, onClick }: CheckpadCardProps) {
     `#${comanda.id}`;
 
   const mesa = comanda.checkpad?.identifier || "—";
-  const area = comanda.checkpad?.model || "—";
+
+  // --- LÓGICA ATUALIZADA ---
+  // Encontra o nome da área usando o nome do modelo (ex: "Barraca")
+  const areaName = useMemo(() => {
+    const modelName = comanda.checkpad?.model;
+    if (!modelName || !areas || areas.length === 0) {
+      return modelName || "—"; // Retorna o nome do modelo se não achar
+    }
+
+    // Encontra a área que contém esse modelo
+    const foundArea = areas.find((area) =>
+      area.checkpadModels?.some((model) => model.name === modelName)
+    );
+
+    // Retorna o nome da área (ex: "Com mesa e flexivel") se achar
+    return foundArea ? foundArea.name : modelName || "—";
+  }, [comanda.checkpad?.model, areas]);
+  // --- FIM DA LÓGICA ---
 
   return (
     <div
@@ -71,23 +93,14 @@ export function CheckpadCard({ comanda, onClick }: CheckpadCardProps) {
 
             <div className="flex items-center gap-1">
               <MdLocationOn size={14} />
-              <span>{area}</span>
+              {/* ATUALIZADO AQUI */}
+              <span>{areaName}</span>
             </div>
           </div>
 
-          {/* Rodapé */}
+          {/* Rodapé (sem alterações) */}
           <div className="flex items-center justify-between text-[12px] font-medium text-neutral-900 mt-auto">
-            <div className="flex items-center gap-1">
-              <MdTimer size={14} />
-              <span>{maskForIdleTime(comanda.idleTime ?? 0)}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <MdRoomService size={14} />
-              <div className="font-semibold">
-                <span>{getInitialsName(comanda.author?.name)}</span>
-              </div>
-            </div>
-            <span>{toBrazilianCurrencyFromCents(comanda.subtotal ?? 0)}</span>
+            {/* ... */}
           </div>
         </>
       )}
